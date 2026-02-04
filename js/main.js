@@ -12,6 +12,8 @@ data: {
     product: "Socks",
         image: "./assets/vmSocks-blue-onWhite.jpg",
         altText: "A pair of socks"
+
+
 }
 
 
