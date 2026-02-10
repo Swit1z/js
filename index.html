@@ -48,10 +48,49 @@
         </button>
     </div>
 
+
 </div>
 </div>
 
+<div id="app">
+    <div class="product">
+        <h2>{{ productName }}</h2>
+        <p>{{ description }}</p>
+        <p>Цена: ${{ price }}</p>
 
+        <!-- Условный рендеринг элемента распродажи -->
+        <span v-if="onSale" class="on-sale">On Sale!</span>
+
+        <!-- Альтернативный вариант с v-show -->
+        <!-- <span v-show="onSale" class="on-sale">On Sale!</span> -->
+    </div>
+
+    <!-- Контроль для переключения статуса распродажи -->
+    <div>
+        <label>
+            <input type="checkbox" v-model="onSale">
+            Включить распродажу
+        </label>
+    </div>
+
+    <!-- Информация о статусе -->
+    <p>Статус распродажи: {{ onSale ? 'Активна' : 'Неактивна' }}</p>
+</div>
+
+<script>
+    const { createApp } = Vue;
+
+    createApp({
+        data() {
+            return {
+                productName: 'Теплые носки',
+                description: 'A pair of warm, fuzzy socks.',
+                price: 9.99,
+                onSale: true  // Свойство для управления отображением распродажи
+            };
+        }
+    }).mount('#app');
+</script>
 
 <script defer src="js/main.js"></script>
 <script defer src="js/vue.js"></script>
